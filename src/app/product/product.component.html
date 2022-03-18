@@ -1,0 +1,43 @@
+<div class="container">
+    <p>{{ productForm.value | json }}</p>
+    <p>{{ newProduct | json }}</p>
+    <div class="row">
+        <div class="col-md-6">
+            <form #productForm="ngForm" (submit)="onSubmit(productForm.value)" class="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" [(ngModel)]="newProduct.name"  placeholder="name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="price" [(ngModel)]="newProduct.price" placeholder="price">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="desc" [(ngModel)]="newProduct.desc"  placeholder="desc">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Tên SP</td>
+                        <td>Gía SP</td>
+                        <td>Mô tả</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.desc }}</td>
+                        <td>
+                            <button (click)="onEdit(product)" class="btn btn-success">Chinh sua</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
