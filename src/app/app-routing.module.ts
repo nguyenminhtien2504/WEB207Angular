@@ -1,3 +1,5 @@
+import { ProductFormComponent } from './product-form/product-form.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { StudentComponent } from './student/student.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
@@ -7,6 +9,18 @@ const routes: Routes = [
   {
     path: 'product',
     component: ProductComponent
+  },
+  {
+    path: 'product/create',
+    component: ProductFormComponent
+  },
+  {
+    path: 'product/:id',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'product/:id/edit',
+    component: ProductFormComponent
   },
   {
     path: 'app',

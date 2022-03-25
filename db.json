@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "name": "Iphone 12122",
+      "price": "200",
+      "desc": "Apple",
+      "id": 1
+    },
+    {
+      "name": "tiến nguyen minh",
+      "price": "011",
+      "desc": "dfgfd",
+      "id": 2
+    },
+    {
+      "name": "nexfan ",
+      "price": "011",
+      "desc": "dfgfd",
+      "id": 3
+    },
+    {
+      "name": "tiến nguyen minh",
+      "price": 12,
+      "desc": "Apple098",
+      "id": 4
+    },
+    {
+      "name": "tiến nguyen minh",
+      "price": 11,
+      "desc": "dfgfdjhfg",
+      "id": 5
+    }
+  ]
+}

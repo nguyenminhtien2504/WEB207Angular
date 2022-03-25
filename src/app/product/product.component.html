@@ -1,8 +1,8 @@
 <div class="container">
-    <p>{{ productForm.value | json }}</p>
-    <p>{{ newProduct | json }}</p>
+    <!-- <p>{{ productForm.value | json }}</p> -->
+    <!-- <p>{{ newProduct | json }}</p> -->
     <div class="row">
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
             <form #productForm="ngForm" (submit)="onSubmit(productForm.value)" class="form">
                 <div class="form-group">
                     <input type="text" class="form-control" name="name" [(ngModel)]="newProduct.name"  placeholder="name">
@@ -17,23 +17,36 @@
                     <button class="btn btn-success" type="submit">Submit</button>
                 </div>
             </form>
-        </div>
-        <div class="col-md-6">
+        </div> -->
+        
+        <div class="col-md-12">
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <td>ID</td>
                         <td>Tên SP</td>
                         <td>Gía SP</td>
                         <td>Mô tả</td>
+                        <td>Hành động</td>
+                        <td>
+                            <a routerLink="/product/create" class="btn btn-primary">Tạo Mới</a>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let product of products">
+                        <td>{{ product.id }}</td>
                         <td>{{ product.name }}</td>
                         <td>{{ product.price }}</td>
                         <td>{{ product.desc }}</td>
                         <td>
-                            <button (click)="onEdit(product)" class="btn btn-success">Chinh sua</button>
+                            <a [routerLink]="['/product', product.id]">
+                                <button class="btn btn-primary">Chi tiết</button>
+                            </a>
+                            <a [routerLink]="['/product', product.id,'edit']">
+                                <button class="btn btn-warning">Chinh sua</button>
+                            </a>
+                            <button (click)="onDelete(product.id)" class="btn btn-danger">Xóa</button>
                         </td>
                     </tr>
                 </tbody>

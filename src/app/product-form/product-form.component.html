@@ -1,0 +1,41 @@
+<!-- nếu có id thì chỉnh sửa đổi tên tiêu đề và cho id vào form -->
+
+<h1 *ngIf="id!=undefined">Chỉnh Sửa Sản Phẩm {{ productDetail.name }}</h1>
+<h1 *ngIf="id===undefined">Thêm mới Sản Phẩm</h1>
+<!-- <p>{{name.invalid| json}}</p> -->
+<div class="container">
+    <div class="col-md-6">
+            <form #productForm="ngForm" class="form" (ngSubmit)="onUpdate(productForm.value)">
+                <div class="form-group">
+                    <input *ngIf="id" type="hidden" class="form-control" name="id" [(ngModel)]="productDetail.id"  placeholder="id">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" [(ngModel)]="productDetail.name" placeholder="name" #name="ngModel" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="price" [(ngModel)]="productDetail.price" placeholder="price" min="1" #price="ngModel" >
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="desc" [(ngModel)]="productDetail.desc"  placeholder="desc" minlength="6" #desc="ngModel" required>
+                </div>
+                <div *ngIf="productForm.form.dirty" style="color: red;">
+                    <div *ngIf="name.errors?.['required']">
+                        Tên sp bắt buộc nhập
+                    </div>
+                    <div *ngIf="price.errors?.['min']">
+                        Giá phải lớn hơn 0
+                    </div>
+                    <div *ngIf="desc.errors?.['minlength']">
+                        Mô tả phải từ 6 ký tự trở lên
+                    </div>
+                    <div *ngIf="desc.errors?.['required']">
+                        Mô tả phải nhập
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button [disabled]="productForm.form.invalid" class="btn btn-success" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+</div>
